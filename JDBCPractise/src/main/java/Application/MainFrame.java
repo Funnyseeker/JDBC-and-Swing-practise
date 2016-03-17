@@ -99,9 +99,9 @@ public class MainFrame extends JFrame {
         this.add(refreshButton, BorderLayout.NORTH);
         //CusTabbedPane settings
         ConnectionInfo connectionInfo = new ConnectionInfo("jdbc:oracle:thin","localhost","1521", "orcl", "vsams", "vsams");
-        XmlManager xm = XmlManager.getInstance();
+        ConfigManager xm = ConfigManager.getInstance();
         try {
-            xm.WriteConfigFile(connectionInfo);
+            xm.WriteXmlConfigFile(connectionInfo);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }

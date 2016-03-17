@@ -30,13 +30,23 @@ public class CusTableModel extends AbstractTableModel {
             for (int i = 0; i < totalRows; i++) {
                 for (int j = 0; j < columns.length - 1; j++) {
                     data[i][j] = dataSet.getObject(j + 1);
-                    if (metaData.getColumnTypeName(j+1) == "CHAR") {
-                        if(data[i][j] != null) {
+                    if(data[i][j] != null) {
+                        if (metaData.getColumnTypeName(j + 1) == "CHAR") {
                             int rez = Integer.parseInt(dataSet.getObject(j + 1).toString());
                             if (rez == 1)
                                 data[i][j] = Boolean.TRUE;
                             else
                                 data[i][j] = Boolean.FALSE;
+                            continue;
+                        }
+                        if (metaData.getColumnTypeName(j + 1) == "NUMBER")
+                        {
+                            int rez = Integer.parseInt(dataSet.getObject(j + 1).toString());
+                            if (rez == 1)
+                                data[i][j] = rez;
+                            else
+                                data[i][j] = rez;
+                            continue;
                         }
                     }
                 }
@@ -116,14 +126,44 @@ public class CusTableModel extends AbstractTableModel {
             {
                 continue;
             }
-            for (int j = 0; j < columns.length; j++)
-            {
-                System.arraycopy(data[i], 0, newData[k], 0, columns.length);
-               //newData[k][j]=data[i][j];
-            }
+            System.arraycopy(data[i], 0, newData[k], 0, columns.length);
             k++;
         }
         data = newData;
         fireTableRowsDeleted(row, row);
+    }
+
+    public void addRow()
+    {
+        Object[] values = new Object[columns.length-2];
+        for(int i=1; i<columns.length - 1; i++) {
+            if (getColumnClass(i) == String.class) {
+                values[i-1] = "";
+                continue;
+            }
+            if(getColumnClass(i) == Integer.class)
+            {
+                values[i-1] = 0;
+                continue;
+            }
+            if(getColumnClass(i) == Boolean.class)
+            {
+                values[i-1] = Boolean.FALSE;
+                continue;
+            }
+        }
+        String[] colNames = new String[columns.length-2];
+        System.arraycopy(columns, 1, colNames, 0, columns.length-2);
+        values[0] = dm.Insert(tabName, colNames, values);
+        values[columns.length-1] = new ImageIcon(getClass().getClassLoader().getResource("plus.png"));
+        Object[][] newData = new Object[data.length+1][columns.length];
+        for(int i=0, k = 0; i < data.length; i++)
+        {
+            System.arraycopy(data[i], 0, newData[k], 0, columns.length);
+            k++;
+        }
+        System.arraycopy(values, 0, newData[data.length], 0, columns.length);
+        data = newData;
+        fireTableRowsInserted(getRowCount()-1, getRowCount()-1);
     }
 }
