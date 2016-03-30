@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-//todo: Модель - это данные и только. Модель не должна
 public class CusTableModel extends AbstractTableModel {
     DataManager dm;
     ResultSetMetaData metaData;
