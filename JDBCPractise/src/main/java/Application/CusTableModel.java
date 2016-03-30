@@ -22,7 +22,7 @@ public class CusTableModel extends AbstractTableModel {
             for (int i = 1; i <= metaData.getColumnCount(); i++) {
                 columns[i - 1] = metaData.getColumnName(i);
             }
-            columns[columns.length - 1] = "New column";
+            columns[columns.length - 1] = "Add new column";
             dataSet.last();
             int totalRows = dataSet.getRow();
             dataSet.absolute(1);
@@ -138,7 +138,7 @@ public class CusTableModel extends AbstractTableModel {
         Object[] values = new Object[columns.length-2];
         for(int i=1; i<columns.length - 1; i++) {
             if (getColumnClass(i) == String.class) {
-                values[i-1] = "";
+                values[i-1] = " ";
                 continue;
             }
             if(getColumnClass(i) == Integer.class)
@@ -154,16 +154,24 @@ public class CusTableModel extends AbstractTableModel {
         }
         String[] colNames = new String[columns.length-2];
         System.arraycopy(columns, 1, colNames, 0, columns.length-2);
-        values[0] = dm.Insert(tabName, colNames, values);
-        values[columns.length-1] = new ImageIcon(getClass().getClassLoader().getResource("plus.png"));
+
+        Object[] newValues= new Object[columns.length];
+        newValues[0] = dm.Insert(tabName, colNames, values);
+        System.arraycopy(values, 0, newValues, 1, columns.length-2);
+        newValues[columns.length-1] = new ImageIcon(getClass().getClassLoader().getResource("plus.png"));
         Object[][] newData = new Object[data.length+1][columns.length];
         for(int i=0, k = 0; i < data.length; i++)
         {
             System.arraycopy(data[i], 0, newData[k], 0, columns.length);
             k++;
         }
-        System.arraycopy(values, 0, newData[data.length], 0, columns.length);
+        System.arraycopy(newValues, 0, newData[data.length], 0, columns.length);
         data = newData;
         fireTableRowsInserted(getRowCount()-1, getRowCount()-1);
+    }
+
+    public void addColumn()
+    {
+
     }
 }

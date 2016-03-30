@@ -2,7 +2,10 @@ package Application;
 
 
 import com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException;
+import oracle.jdbc.proxy.annotation.Pre;
 
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,62 +108,127 @@ public class DataManager {
             String req = "DELETE FROM " + tabName
                     + " WHERE " + " ID = " + ID.toString();
             stmt.executeUpdate(req);
-            getConnection().commit();
             stmt.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public Object Insert(String tabName, String[] columns, Object[] values) {
+    public int Insert(String tabName, String[] columns, Object[] values) {
         try {
-            String req = "insert into " +tabName +"(";
-            Statement stmt = getConnection().createStatement();
-            for(String colName : columns) {
-                req+=colName;
-                if (colName != columns[columns.length-1])
-                    req+=",";
-                else
-                    req+=")";
+            String req = "insert into " + tabName + "(";
+            String insColumns = "";
+            Statement updstmt = getConnection().createStatement();
+            for (String colName : columns) {
+                insColumns += colName;
+                if (colName != columns[columns.length - 1])
+                    insColumns += ",";
             }
-            req+= " values (";
-            for(int i=0; i<values.length; i++)
-            {
+            req += insColumns + ") values (";
+            String insvalues = "";
+            for (int i = 0; i < values.length; i++) {
                 if (values[i].getClass() == String.class) {
-                    req += "'"+values[i].toString()+"'";
+                    insvalues += "'" + values[i].toString() + "'";
                 }
-                if (values[i].getClass() == Integer.class)
-                {
-                    req+=values.toString();
+                if (values[i].getClass() == Integer.class) {
+                    insvalues += values.toString();
                 }
                 if (values[i].getClass() == Boolean.class) {
-                    if((Boolean)values[i] == Boolean.FALSE)
-                        req+='0';
+                    if ((Boolean) values[i] == Boolean.FALSE)
+                        insvalues += '0';
                     else
-                        req+='1';
+                        insvalues += '1';
                 }
-                if (i+1<values.length)
-                {
-                    req+=",";
-                }
-                else
-                {
-                    req+=")";
+                if (i + 1 < values.length) {
+                    insvalues += ",";
                 }
             }
-            stmt.executeUpdate(req, Statement.RETURN_GENERATED_KEYS);
-            ResultSet keys = stmt.getGeneratedKeys();
-            Object autoIncKeyFromApi = -1;
-            if (keys.next())
-            {
-                autoIncKeyFromApi = keys.getObject(1);
+            req += insvalues + ")";
+            updstmt.executeUpdate(req);
+            PreparedStatement selstmt = getConnection().prepareStatement("select max(ID) from " + tabName
+                    + " where " + insColumns.replace(",", "=? and ") + "=?");
+            for (int i = 0; i < values.length; i++) {
+                selstmt.setObject(i + 1, values[i]);
             }
-            getConnection().commit();
-            stmt.close();
-            return autoIncKeyFromApi;
+            updstmt.close();
+            ResultSet genId = selstmt.executeQuery();
+            int Id = 0;
+            if (genId.next()) {
+                Id = Integer.parseInt(genId.getObject(1).toString());
+            }
+            selstmt.close();
+            return Id;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public void RenameTable(String oldName, String newName) {
+        Statement statement = null;
+        try {
+            Statement stmt = getConnection().createStatement();
+            String req = "ALTER TABLE " + oldName + " RENAME TO " + newName;
+            stmt.executeUpdate(req);
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void RenameColumn(String tabName, String oldName, String newName)
+    {
+        Statement statement = null;
+        try {
+            Statement stmt = getConnection().createStatement();
+            String req = "RENAME COLUMN " + tabName+"."+oldName + " TO " + newName;
+            stmt.executeUpdate(req);
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void EditTable(String tabName, String colName, Class type)
+    {
+
+    }
+
+    public ResultSet CreateTable(String tabName)
+    {
+        try {
+            Statement stmt = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String req = "Create table "+tabName+" (" +
+                    "\"ID\" NUMBER(*,0) NOT NULL ENABLE, " +
+                    "col1 VARCHAR2(20))";
+            stmt.executeUpdate(req);
+            req = " CREATE SEQUENCE  \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_SEQ\"  MINVALUE 1 MAXVALUE 9999999999999999999999999999" +
+                    " INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE";
+            stmt.executeUpdate(req);
+            req = "  CREATE OR REPLACE TRIGGER \""+getConnection().getMetaData().getUserName()
+                    +"\".\""+tabName+"_TRG\" \n" +
+                    "BEFORE INSERT ON " + tabName + "\n"+
+                    "FOR EACH ROW \n" +
+                    "BEGIN \n" +
+                    "  <<COLUMN_SEQUENCES>> \n" +
+                    "  BEGIN \n" +
+                    "    IF INSERTING AND :NEW.ID IS NULL THEN \n" +
+                    "      SELECT \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_SEQ\".NEXTVAL INTO :NEW.ID FROM SYS.DUAL; \n" +
+                    "    END IF; \n" +
+                    "  END COLUMN_SEQUENCES; \n" +
+                    "END; ";
+            stmt.executeUpdate(req);
+            req = "ALTER TRIGGER \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_TRG\" ENABLE";
+            stmt.executeUpdate(req);
+            req = "insert into "+tabName+"(col1) values ('')";
+            stmt.executeUpdate(req);
+            req = "SELECT * FROM "+tabName;
+            ResultSet newTab = stmt.executeQuery(req);
+            openStatementsList.add(stmt);
+            return newTab;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

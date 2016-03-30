@@ -1,15 +1,21 @@
 package Application;
 
+import com.sun.deploy.panel.JavaPanel;
+import com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CusTabbedPane extends JTabbedPane {
-    public CusTabbedPane(List<ResultSet> tabbesList) {
+    public CusTabbedPane(final List<ResultSet> tabbesList) {
         try {
             //From ResultSets to tabbes
             //Note! Firs result set consider just user table`s names
@@ -34,13 +40,43 @@ public class CusTabbedPane extends JTabbedPane {
                     int index = sourceTabbedPane.getSelectedIndex();
                     if (index == getTabCount()-1)
                     {
-                        JPanel panel = TableBuilder.createTable();
                         sourceTabbedPane.setSelectedIndex(0);
-                        sourceTabbedPane.insertTab("new", new ImageIcon(),panel, "", index);
+                        ///final TableBuilder dialog = new TableBuilder();
+                        //dialog.createTable();
+                        //dialog.setVisible(true);
+                        //JPanel panel = new JPanel(new FlowLayout());
+                        // prompt the user to enter their name
+                        String name = JOptionPane.showInputDialog(new JFrame(), "Enter new table name?");
+                        if (name == null)
+                            return;
+
+                        try {
+                            sourceTabbedPane.insertTab(name, new ImageIcon(),
+                                    TableBuilder.createTable(DataManager.getInstance().CreateTable(name), name), "", index);
+                        } catch (ReferenceNotInitializedException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                 }
             });
-
+            final JTabbedPane pane = this;
+            JPopupMenu pmenu = new JPopupMenu();
+            JMenuItem editItem = new JMenuItem("edit table");
+            editItem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    TableBuilder tableBuilder = new TableBuilder();
+                    tableBuilder.editTable(pane);
+                    tableBuilder.setVisible(true);
+                }
+            });
+            JMenuItem delItem = new JMenuItem("del table");
+            delItem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            pmenu.add(editItem);
+            pmenu.add(delItem);
+            this.setComponentPopupMenu(pmenu);
         } catch (Exception e) {
             e.printStackTrace();
         }
