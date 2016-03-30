@@ -2,12 +2,15 @@ package Application;
 
 
 public class ConnectionInfo {
+    //todo: лучше избегать такой линейной инициализации
     private String Driver, Host, Port, Sid, Username, Password;
 
     public ConnectionInfo() {
     }
 
+    //todo: самое место для this при правильном наимонавнии полей класса
     public ConnectionInfo(String driver, String host, String port, String sid, String username, String password) {
+        //todo: префикс "jdbc:" не зависит от типа базы данных и никогда не меняется --> в константу
         Driver = driver;
         Host = host;
         Port = port;

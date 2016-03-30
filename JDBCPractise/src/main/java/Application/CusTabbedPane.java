@@ -13,8 +13,9 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
+//todo: Cus == Custom? Здесь и всегда --> Понятные названия - один из основных принципов и правил в программировании
 public class CusTabbedPane extends JTabbedPane {
+    //todo: ResultSet не только выходит из слоя DAO, но и залазит в слой модели :)
     public CusTabbedPane(final List<ResultSet> tabbesList) {
         try {
             //From ResultSets to tabbes

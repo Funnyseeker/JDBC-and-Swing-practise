@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
+//todo: Модель - это данные и только. Модель не должна
 public class CusTableModel extends AbstractTableModel {
     DataManager dm;
     ResultSetMetaData metaData;
@@ -134,6 +135,7 @@ public class CusTableModel extends AbstractTableModel {
     }
 
     public void addRow()
+            //todo: Ты или переносишь скобку на новубю строку во всем проекте, или нет. Комбинирование этих двух способов единовременно - кощунство
     {
         Object[] values = new Object[columns.length-2];
         for(int i=1; i<columns.length - 1; i++) {
@@ -156,10 +158,13 @@ public class CusTableModel extends AbstractTableModel {
         System.arraycopy(columns, 1, colNames, 0, columns.length-2);
 
         Object[] newValues= new Object[columns.length];
+        //todo: при вставке данных в БД, если возникло исключение, ты возвращаешь ноль, который должен сигнализировать о неудаче
+        //todo: вместо этого ты записвыаешь его, как обычное значение
         newValues[0] = dm.Insert(tabName, colNames, values);
         System.arraycopy(values, 0, newValues, 1, columns.length-2);
         newValues[columns.length-1] = new ImageIcon(getClass().getClassLoader().getResource("plus.png"));
         Object[][] newData = new Object[data.length+1][columns.length];
+        //todo: Значение переменных i & k у тебя всегда одинаковы. Инкременатция в заголовке цикла выполняется после выполнения тела цикла
         for(int i=0, k = 0; i < data.length; i++)
         {
             System.arraycopy(data[i], 0, newData[k], 0, columns.length);

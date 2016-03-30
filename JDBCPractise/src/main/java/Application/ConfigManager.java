@@ -59,7 +59,7 @@ public class ConfigManager {
 
     public ConnectionInfo ReadXmlConfigFile() {
         ConnectionInfo connectionInfo = new ConnectionInfo();
-
+        //todo: Где тело? :)
 
 
         return connectionInfo;

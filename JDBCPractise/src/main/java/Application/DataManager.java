@@ -10,8 +10,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@SuppressWarnings("all")
 public class DataManager {
+    //todo: А зачем тебе список открытых стейтментов?
     private List<Statement> openStatementsList = new ArrayList<Statement>();
     private static DataManager Instance = null;
     private Connection connection = null;
@@ -25,6 +26,12 @@ public class DataManager {
         this.Password = connectionInfo.getPassword();
         this.URL = connectionInfo.getUrl();
     }
+
+    //todo: следующие два метода можно заменить одним:
+    //todo:  if (instance == null){
+    //todo:      instance = new DataManager(connectionInfo);
+    //todo:  }
+    //todo:  return instance;
 
     public static DataManager getInstance() throws ReferenceNotInitializedException {
         if (Instance == null) throw new ReferenceNotInitializedException();
@@ -41,9 +48,15 @@ public class DataManager {
      * If "null" - connection was created with error.
      */
     private Connection getConnection() {
+//        Конец условия звучит как "вернуть соеденение или вернуть соеденение". Для читабельности можно сделать примерно так:
+//        if (connection != null && !connection.isClosed()){
+//            return connection;
+//        }
+//        ... Инициализация и возврат соеденения
+
         try {
             if (connection == null || connection.isClosed()) {
-
+                //todo: Драйвер достаточно загрузить лишь раз при запуске приложения
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 connection = DriverManager.getConnection(URL, Username, Password);
                 return connection;
@@ -56,6 +69,7 @@ public class DataManager {
 
     public void closeConnection() {
         try {
+            //todo: foreach?
             for (int i = 0; i < openStatementsList.size(); i++) {
                 openStatementsList.get(i).close();
             }
@@ -66,6 +80,7 @@ public class DataManager {
         }
     }
 
+    //todo: Парси тут ResultSet, построй структуру данных, которую будешь передавать в CusTabbedPane
     public List<ResultSet> getDataSet() {
         List<ResultSet> dataSet = new ArrayList<ResultSet>();
         Statement statement = null;
@@ -92,9 +107,11 @@ public class DataManager {
 
     public void updateDate(Object ID, String tabName, String colName, Object Value) {
         try {
+            //todo: везде обычный Statement, а тут PreparedStatement?
             PreparedStatement stmt = getConnection().prepareStatement("UPDATE " + tabName + " SET " + colName
                     + " = '" + Value.toString() + "' WHERE " + " ID = " + ID.toString());
             stmt.executeUpdate();
+            //todo: почитай про try with resources (позволяет не заботиться о закрытии ресурсов)
             stmt.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,6 +156,7 @@ public class DataManager {
                     else
                         insvalues += '1';
                 }
+                //todo: Немного инвертировано. "if (i < values.length - 1)" более логично
                 if (i + 1 < values.length) {
                     insvalues += ",";
                 }
@@ -154,6 +172,7 @@ public class DataManager {
             ResultSet genId = selstmt.executeQuery();
             int Id = 0;
             if (genId.next()) {
+                //todo: Последовательность колонок у тебя сторого детерминировано? Если нет, то лучше брать данные по названию колонки
                 Id = Integer.parseInt(genId.getObject(1).toString());
             }
             selstmt.close();
@@ -161,6 +180,7 @@ public class DataManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //todo: Ноль, иногда, может быть вполне валидным индексом
         return 0;
     }
 
@@ -202,6 +222,10 @@ public class DataManager {
                     "\"ID\" NUMBER(*,0) NOT NULL ENABLE, " +
                     "col1 VARCHAR2(20))";
             stmt.executeUpdate(req);
+
+            //todo: Это ты заново придумал механизм автоинкремента?)
+            //todo: ID NUMBER(*,0) NOT NULL ENABLE --> id BIGINT AUTO_INCREMENT PRIMARY KEY
+            //todo: и СУБД сама все за тебя сделает
             req = " CREATE SEQUENCE  \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_SEQ\"  MINVALUE 1 MAXVALUE 9999999999999999999999999999" +
                     " INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE";
             stmt.executeUpdate(req);
