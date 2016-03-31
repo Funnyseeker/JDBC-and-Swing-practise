@@ -5,6 +5,9 @@
       <artifact name="JDBCPractise:jar" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java" line="99" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c68a1aab-7fb5-4a05-bc42-04f08c591552" name="Default" comment="" />
     <ignored path="JDBCPractise.iws" />
@@ -28,88 +31,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CusTableModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTableModel.java">
+      <file leaf-file-name="CustomTableModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
-                <element signature="e#2401#2402#0" expanded="true" />
-                <element signature="e#2438#2439#0" expanded="true" />
-                <element signature="method#getColumnClass#0;class#CusTableModel#0" expanded="false" />
-                <element signature="method#isCellEditable#0;class#CusTableModel#0" expanded="false" />
-                <element signature="method#setValueAt#0;class#CusTableModel#0" expanded="false" />
-                <element signature="method#removeRow#0;class#CusTableModel#0" expanded="false" />
-                <element signature="method#addRow#0;class#CusTableModel#0" expanded="false" />
+                <element signature="e#248#249#0" expanded="true" />
+                <element signature="e#292#293#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#429#430#0" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
+                <element signature="e#523#524#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Application/MainFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
-              <folding>
-                <element signature="class#904:2040" expanded="false" />
-                <element signature="method#windowOpened#0;class#904:2040" expanded="false" />
-                <element signature="method#windowClosing#0;class#904:2040" expanded="false" />
-                <element signature="method#windowClosed#0;class#904:2040" expanded="false" />
-                <element signature="method#windowIconified#0;class#904:2040" expanded="false" />
-                <element signature="method#windowDeiconified#0;class#904:2040" expanded="false" />
-                <element signature="method#windowActivated#0;class#904:2040" expanded="false" />
-                <element signature="method#windowDeactivated#0;class#904:2040" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableBuilder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40466103">
-              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CusTabbedPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTabbedPane.java">
+      <file leaf-file-name="TableBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#1391#2692#0" expanded="true" />
-                <element signature="e#2691#2692#0" expanded="true" />
-                <element signature="e#2888#3172#0" expanded="true" />
-                <element signature="e#3171#3172#0" expanded="true" />
+                <element signature="e#1929#2717#0" expanded="true" />
+                <element signature="e#2716#2717#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Application/DataManager.java">
+      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/DataManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="198" column="13" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.4516129">
+              <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
               <folding>
-                <element signature="method#DataManager#0;class#DataManager#0" expanded="false" />
-                <element signature="method#getInstance#0;class#DataManager#0" expanded="false" />
-                <element signature="method#initInstance#0;class#DataManager#0" expanded="false" />
-                <element signature="docComment;method#getConnection#0;class#DataManager#0" expanded="false" />
-                <element signature="method#getConnection#0;class#DataManager#0" expanded="false" />
-                <element signature="method#closeConnection#0;class#DataManager#0" expanded="false" />
-                <element signature="method#getDataSet#0;class#DataManager#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#425#436#0" expanded="true" />
+                <element signature="e#2972#2984#0" expanded="true" />
                 <element signature="method#updateDate#0;class#DataManager#0" expanded="false" />
                 <element signature="method#deleteRow#0;class#DataManager#0" expanded="false" />
                 <element signature="method#Insert#0;class#DataManager#0" expanded="false" />
                 <element signature="method#RenameTable#0;class#DataManager#0" expanded="false" />
                 <element signature="method#RenameColumn#0;class#DataManager#0" expanded="false" />
                 <element signature="method#EditTable#0;class#DataManager#0" expanded="false" />
+                <element signature="method#CreateTable#0;class#DataManager#0" expanded="false" />
+                <element signature="method#parseResultSetToMetaData#0;class#DataManager#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomTabbedPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,8 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Application/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Application/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/ConfigManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/RowCreaterFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/test.java" />
@@ -140,14 +131,34 @@
         <option value="$PROJECT_DIR$/src/main/java/Application/CusTabbedPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/CusTableModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/DataManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/ConnectionInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application/TableBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/CustomMetaData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/CustomData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/CustomCellRenderer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Application/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CusTableModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ConnectionInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CusещьTabbedPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ConfigManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/App.java" />
+        <option value="$PROJECT_DIR$/profiles.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/application/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CustomMetaData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/TableBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CustomData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/CustomTableModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/DataManager.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$USER_HOME$/Downloads/apache-maven-3.3.9" />
+        <option name="mavenHome" value="Bundled (Maven 3)" />
         <option name="workOffline" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -160,6 +171,20 @@
   <component name="MavenProjectNavigator">
     <option name="showVersions" value="true" />
     <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="application" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
@@ -222,8 +247,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,13 +345,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,7 +361,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -347,6 +372,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vsams\Documents\GitHub\JDBC-and-Swing-practise\JDBCPractise\src\main\resources" />
       <recent name="C:\Users\vsams\IdeaProjects\JDBCPractise\src\main\resources" />
       <recent name="C:\Users\vsams\IdeaProjects\JDBCPractise\src\main\java\Application" />
       <recent name="C:\Users\vsams\IdeaProjects\JDBCPractise\src\main\java" />
@@ -527,7 +553,7 @@
     </configuration>
     <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Application.App" />
+      <option name="MAIN_CLASS_NAME" value="application.App" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -572,27 +598,27 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3272727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3908046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33575758" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2536946" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2545156" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958949" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5061947" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3939394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3939394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -613,21 +639,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="78" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -646,118 +658,150 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/pom.xml">
+      <expanded value="true" />
+    </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTableModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="method#getColumnClass#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#isCellEditable#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#setValueAt#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#removeRow#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#addRow#0;class#CusTableModel#0" expanded="false" />
+            <element signature="method#isCellEditable#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#setValueAt#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#removeRow#0;class#CustomTableModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="class#904:2040" expanded="false" />
-            <element signature="method#windowOpened#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosing#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosed#0;class#904:2040" expanded="false" />
-            <element signature="method#windowIconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeiconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowActivated#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeactivated#0;class#904:2040" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/DataManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#DataManager#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getInstance#0;class#DataManager#0" expanded="false" />
-            <element signature="method#initInstance#0;class#DataManager#0" expanded="false" />
-            <element signature="docComment;method#getConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#closeConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getDataSet#0;class#DataManager#0" expanded="false" />
+            <element signature="e#996#1398#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="222" column="13" selection-start-line="222" selection-start-column="13" selection-end-line="222" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
+            <element signature="e#2972#2984#0" expanded="true" />
             <element signature="method#updateDate#0;class#DataManager#0" expanded="false" />
             <element signature="method#deleteRow#0;class#DataManager#0" expanded="false" />
             <element signature="method#Insert#0;class#DataManager#0" expanded="false" />
             <element signature="method#RenameTable#0;class#DataManager#0" expanded="false" />
             <element signature="method#RenameColumn#0;class#DataManager#0" expanded="false" />
             <element signature="method#EditTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#CreateTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#parseResultSetToMetaData#0;class#DataManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTableModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <folding>
+            <element signature="method#isCellEditable#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#setValueAt#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#removeRow#0;class#CustomTableModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="e#996#1398#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
+            <element signature="e#2972#2984#0" expanded="true" />
+            <element signature="method#updateDate#0;class#DataManager#0" expanded="false" />
+            <element signature="method#deleteRow#0;class#DataManager#0" expanded="false" />
+            <element signature="method#Insert#0;class#DataManager#0" expanded="false" />
+            <element signature="method#RenameTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#RenameColumn#0;class#DataManager#0" expanded="false" />
+            <element signature="method#EditTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#CreateTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#parseResultSetToMetaData#0;class#DataManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding>
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="method#getColumnClass#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#isCellEditable#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#setValueAt#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#removeRow#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#addRow#0;class#CusTableModel#0" expanded="false" />
+            <element signature="method#isCellEditable#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#setValueAt#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#removeRow#0;class#CustomTableModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTabbedPane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="94" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="94" />
-          <folding>
-            <element signature="e#1391#2692#0" expanded="true" />
-            <element signature="e#2691#2692#0" expanded="true" />
-            <element signature="e#2888#3172#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="class#904:2040" expanded="false" />
-            <element signature="method#windowOpened#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosing#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosed#0;class#904:2040" expanded="false" />
-            <element signature="method#windowIconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeiconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowActivated#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeactivated#0;class#904:2040" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -765,64 +809,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#996#1398#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTableModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="method#getColumnClass#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#isCellEditable#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#setValueAt#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#removeRow#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#addRow#0;class#CusTableModel#0" expanded="false" />
+            <element signature="method#isCellEditable#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#setValueAt#0;class#CustomTableModel#0" expanded="false" />
+            <element signature="method#removeRow#0;class#CustomTableModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTabbedPane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1391#2692#0" expanded="true" />
-            <element signature="e#2691#2692#0" expanded="true" />
-            <element signature="e#2888#3172#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CustomCellRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15828678">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22944786">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="e#996#1398#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,25 +885,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22118959">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/ConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31598514">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="method#WriteXmlConfigFile#0;class#ConfigManager#0" expanded="false" />
-            <element signature="method#ReadXmlConfigFile#0;class#ConfigManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71561337">
@@ -894,24 +900,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/MainFrame.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/event/WindowEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.013784461">
+          <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomCellRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22580644">
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/ConnectionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.18785578">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
           <folding>
-            <element signature="class#904:2040" expanded="false" />
-            <element signature="method#windowOpened#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosing#0;class#904:2040" expanded="false" />
-            <element signature="method#windowClosed#0;class#904:2040" expanded="false" />
-            <element signature="method#windowIconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeiconified#0;class#904:2040" expanded="false" />
-            <element signature="method#windowActivated#0;class#904:2040" expanded="false" />
-            <element signature="method#windowDeactivated#0;class#904:2040" expanded="false" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12903225">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -919,62 +943,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTableModel.java">
+    <entry file="file://$PROJECT_DIR$/general.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.08531995">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/ConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81053954">
+          <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
           <folding>
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="method#getColumnClass#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#isCellEditable#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#setValueAt#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#removeRow#0;class#CusTableModel#0" expanded="false" />
-            <element signature="method#addRow#0;class#CusTableModel#0" expanded="false" />
+            <element signature="method#ReadXmlConfigFile#0;class#ConfigManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/CusTabbedPane.java">
+    <entry file="file://$USER_HOME$/.m2/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19615385">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29861984">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
           <folding>
-            <element signature="e#1391#2692#0" expanded="true" />
-            <element signature="e#2691#2692#0" expanded="true" />
-            <element signature="e#2888#3172#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/DataManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19354838">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <element signature="e#145#297#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32258064">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <element signature="method#CustomData#0;class#CustomData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTabbedPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="198" column="13" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/CustomTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
-            <element signature="method#DataManager#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getInstance#0;class#DataManager#0" expanded="false" />
-            <element signature="method#initInstance#0;class#DataManager#0" expanded="false" />
-            <element signature="docComment;method#getConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#closeConnection#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getDataSet#0;class#DataManager#0" expanded="false" />
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/TableBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#1929#2717#0" expanded="true" />
+            <element signature="e#2716#2717#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4516129">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
+            <element signature="e#2972#2984#0" expanded="true" />
             <element signature="method#updateDate#0;class#DataManager#0" expanded="false" />
             <element signature="method#deleteRow#0;class#DataManager#0" expanded="false" />
             <element signature="method#Insert#0;class#DataManager#0" expanded="false" />
             <element signature="method#RenameTable#0;class#DataManager#0" expanded="false" />
             <element signature="method#RenameColumn#0;class#DataManager#0" expanded="false" />
             <element signature="method#EditTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#CreateTable#0;class#DataManager#0" expanded="false" />
+            <element signature="method#parseResultSetToMetaData#0;class#DataManager#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application/TableBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40466103">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,6 +1151,17 @@
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <last-edited>ojdbc6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
@@ -50,8 +50,8 @@ public class ConfigManager {
         conn.appendChild(pass);
         doc.appendChild(conn);
         try {
-            Transformer t=TransformerFactory.newInstance().newTransformer();
-            t.transform(new DOMSource(doc), new StreamResult(new FileOutputStream("config.xml")));
+            Transformer t = TransformerFactory.newInstance().newTransformer();
+            t.transform(new DOMSource(doc), new StreamResult(new FileOutputStream("src/main/resources/config.xml")));
         } catch (Exception e) {
             e.printStackTrace();
         }

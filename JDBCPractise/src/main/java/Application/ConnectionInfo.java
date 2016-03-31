@@ -1,49 +1,52 @@
-package Application;
+package application;
 
 
 public class ConnectionInfo {
     //todo: лучше избегать такой линейной инициализации
-    private String Driver, Host, Port, Sid, Username, Password;
+    private String driver;
+    private String host;
+    private String port;
+    private String sid;
+    private String username;
+    private String password;
 
     public ConnectionInfo() {
     }
 
-    //todo: самое место для this при правильном наимонавнии полей класса
     public ConnectionInfo(String driver, String host, String port, String sid, String username, String password) {
-        //todo: префикс "jdbc:" не зависит от типа базы данных и никогда не меняется --> в константу
-        Driver = driver;
-        Host = host;
-        Port = port;
-        Sid = sid;
-        Username = username;
-        Password = password;
+        this.driver = driver;
+        this.host = host;
+        this.port = port;
+        this.sid = sid;
+        this.username = username;
+        this.password = password;
     }
 
     public String getUrl() {
-        return Driver + ":" + Host + ":" + Port + ":" + Sid;
+        return "jdbc:" + driver + ":" + host + ":" + port + ":" + sid;
     }
 
-    public String getHost(){
-        return  Host;
+    public String getHost() {
+        return host;
     }
 
-    public String getPort(){
-        return Port;
+    public String getPort() {
+        return port;
     }
 
-    public String getSid(){
-        return Sid;
+    public String getSid() {
+        return sid;
     }
 
     public String getDriver() {
-        return Driver;
+        return driver;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 }

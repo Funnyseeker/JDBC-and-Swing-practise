@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><connection><driver>jdbc:oracle:thin</driver><host>localhost</host><port>1521</port><sid>orcl</sid><user>vsams</user><password>vsams</password></connection>
-<!--todo: Такая компановка-сжим имеет смысл, например, в JS, когда сервер отправляет скриптовый файл на каждый запрос. Java такими вещами не занимается -->

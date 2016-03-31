@@ -1,11 +1,15 @@
-package Application;
+package application;
+
+import javax.swing.*;
 
 public class App {
 
-    public static void main(String[] args){
-        //todo: Свинг лушче выполнять в AWT потоке
-        //todo: почитай про SwingUtilities.invokeLater()
-        MainFrame frame = new MainFrame();
-        frame.Run();
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                MainFrame frame = new MainFrame();
+                frame.run();
+            }
+        });
     }
 }

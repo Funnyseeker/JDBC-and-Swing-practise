@@ -1,20 +1,18 @@
-package Application;
+package application;
 
 
 import com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException;
-import oracle.jdbc.proxy.annotation.Pre;
 
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("all")
 public class DataManager {
+    private static DataManager Instance = null;
     //todo: А зачем тебе список открытых стейтментов?
     private List<Statement> openStatementsList = new ArrayList<Statement>();
-    private static DataManager Instance = null;
     private Connection connection = null;
     private Statement statement;
     private String Username;
@@ -34,6 +32,11 @@ public class DataManager {
     //todo:  return instance;
 
     public static DataManager getInstance() throws ReferenceNotInitializedException {
+        if (Instance == null) throw new ReferenceNotInitializedException();
+        return Instance;
+    }
+
+    public static DataManager getInstance(ConnectionInfo connectionInfo) throws ReferenceNotInitializedException {
         if (Instance == null) throw new ReferenceNotInitializedException();
         return Instance;
     }
@@ -80,23 +83,25 @@ public class DataManager {
         }
     }
 
-    //todo: Парси тут ResultSet, построй структуру данных, которую будешь передавать в CusTabbedPane
-    public List<ResultSet> getDataSet() {
-        List<ResultSet> dataSet = new ArrayList<ResultSet>();
+    public List<CustomData> getDataSet() {
+        List<CustomData> dataSet = new ArrayList<CustomData>();
         Statement statement = null;
         try {
             statement = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet user_tables = statement.executeQuery("select distinct TABLE_NAME from USER_TABLES order by TABLE_NAME asc");
-            dataSet.add(user_tables);
-            openStatementsList.add(statement);
+            //openStatementsList.add(statement);
             while (user_tables.next()) {
                 Statement stmt = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                String tabname = user_tables.getString("TABLE_NAME");
+                String tableName = user_tables.getString("TABLE_NAME");
 
-                ResultSet tab = stmt.executeQuery("select * from " + tabname);
-                dataSet.add(tab);
-                openStatementsList.add(stmt);
+                ResultSet tab = stmt.executeQuery("select * from " + tableName);
+
+                CustomData customData = parseResultSetToMetaData(tableName, tab);
+
+                dataSet.add(customData);
+                stmt.close();
             }
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -181,7 +186,7 @@ public class DataManager {
             e.printStackTrace();
         }
         //todo: Ноль, иногда, может быть вполне валидным индексом
-        return 0;
+        return -1;
     }
 
     public void RenameTable(String oldName, String newName) {
@@ -196,12 +201,11 @@ public class DataManager {
         }
     }
 
-    public void RenameColumn(String tabName, String oldName, String newName)
-    {
+    public void RenameColumn(String tabName, String oldName, String newName) {
         Statement statement = null;
         try {
             Statement stmt = getConnection().createStatement();
-            String req = "RENAME COLUMN " + tabName+"."+oldName + " TO " + newName;
+            String req = "RENAME COLUMN " + tabName + "." + oldName + " TO " + newName;
             stmt.executeUpdate(req);
             stmt.close();
         } catch (Exception e) {
@@ -209,48 +213,102 @@ public class DataManager {
         }
     }
 
-    public void EditTable(String tabName, String colName, Class type)
-    {
+    public void EditTable(String tabName, String colName, Class type) {
 
     }
 
-    public ResultSet CreateTable(String tabName)
-    {
+    public CustomData CreateTable(String tableName) {
         try {
             Statement stmt = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String req = "Create table "+tabName+" (" +
-                    "\"ID\" NUMBER(*,0) NOT NULL ENABLE, " +
+            String req = "Create table " + tableName + " (" +
+                    "\"ID\" BIGINT AUTO_INCREMENT PRIMARY KEY, " +
                     "col1 VARCHAR2(20))";
             stmt.executeUpdate(req);
 
             //todo: Это ты заново придумал механизм автоинкремента?)
             //todo: ID NUMBER(*,0) NOT NULL ENABLE --> id BIGINT AUTO_INCREMENT PRIMARY KEY
             //todo: и СУБД сама все за тебя сделает
-            req = " CREATE SEQUENCE  \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_SEQ\"  MINVALUE 1 MAXVALUE 9999999999999999999999999999" +
+            //answer: чертов oracle! он не кушает auto_increment:( только шаманизм с триггером и перечислением
+            req = " CREATE SEQUENCE  \"" + getConnection().getMetaData().getUserName() + "\".\"" + tableName + "_SEQ\"  MINVALUE 1 MAXVALUE 9999999999999999999999999999" +
                     " INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE";
             stmt.executeUpdate(req);
-            req = "  CREATE OR REPLACE TRIGGER \""+getConnection().getMetaData().getUserName()
-                    +"\".\""+tabName+"_TRG\" \n" +
-                    "BEFORE INSERT ON " + tabName + "\n"+
+            req = "  CREATE OR REPLACE TRIGGER \"" + getConnection().getMetaData().getUserName()
+                    + "\".\"" + tableName + "_TRG\" \n" +
+                    "BEFORE INSERT ON " + tableName + "\n" +
                     "FOR EACH ROW \n" +
                     "BEGIN \n" +
                     "  <<COLUMN_SEQUENCES>> \n" +
                     "  BEGIN \n" +
                     "    IF INSERTING AND :NEW.ID IS NULL THEN \n" +
-                    "      SELECT \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_SEQ\".NEXTVAL INTO :NEW.ID FROM SYS.DUAL; \n" +
+                    "      SELECT \"" + getConnection().getMetaData().getUserName() + "\".\"" + tableName + "_SEQ\".NEXTVAL INTO :NEW.ID FROM SYS.DUAL; \n" +
                     "    END IF; \n" +
                     "  END COLUMN_SEQUENCES; \n" +
                     "END; ";
             stmt.executeUpdate(req);
-            req = "ALTER TRIGGER \""+getConnection().getMetaData().getUserName()+"\".\""+tabName+"_TRG\" ENABLE";
+            req = "ALTER TRIGGER \"" + getConnection().getMetaData().getUserName() + "\".\"" + tableName + "_TRG\" ENABLE";
             stmt.executeUpdate(req);
-            req = "insert into "+tabName+"(col1) values ('')";
+            req = "insert into " + tableName + "(col1) values ('')";
             stmt.executeUpdate(req);
-            req = "SELECT * FROM "+tabName;
+            req = "SELECT * FROM " + tableName;
             ResultSet newTab = stmt.executeQuery(req);
-            openStatementsList.add(stmt);
-            return newTab;
+            //openStatementsList.add(stmt);
+            CustomData customData = parseResultSetToMetaData(tableName, newTab);
+            return customData;
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private CustomData parseResultSetToMetaData(String tableName, ResultSet tab) {
+        ResultSetMetaData metaData = null;
+        try {
+            metaData = tab.getMetaData();
+            String[] columns = new String[metaData.getColumnCount() + 1];
+            String[] columnsClasses = new String[metaData.getColumnCount() + 1];
+            String[] columnTypeNames = new String[metaData.getColumnCount() + 1];
+            for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                columns[i - 1] = metaData.getColumnName(i);
+                columnsClasses[i - 1] = metaData.getColumnClassName(i);
+                columnTypeNames[i - 1] = metaData.getColumnTypeName(i);
+            }
+            columns[columns.length - 1] = "Add new column";
+            columnsClasses[columnsClasses.length - 1] = ImageIcon.class.toString();
+            columnTypeNames[columnTypeNames.length - 1] = "ImageIcon";
+            tab.last();
+            int totalRows = tab.getRow();
+            tab.absolute(1);
+            Object[][] data = new Object[totalRows][columns.length];
+            for (int i = 0; i < totalRows; i++) {
+                for (int j = 0; j < columns.length - 1; j++) {
+                    data[i][j] = tab.getObject(j + 1);
+                    if (data[i][j] != null) {
+                        if (metaData.getColumnTypeName(j + 1) == "CHAR") {
+                            int rez = Integer.parseInt(tab.getObject(j + 1).toString());
+                            if (rez == 1)
+                                data[i][j] = Boolean.TRUE;
+                            else
+                                data[i][j] = Boolean.FALSE;
+                            continue;
+                        }
+                        if (metaData.getColumnTypeName(j + 1) == "NUMBER") {
+                            int rez = Integer.parseInt(tab.getObject(j + 1).toString());
+                            if (rez == 1)
+                                data[i][j] = rez;
+                            else
+                                data[i][j] = rez;
+                            continue;
+                        }
+                    }
+                }
+                data[i][columns.length - 1] = new ImageIcon(getClass().getClassLoader().getResource("plus.png"));
+                tab.next();
+            }
+            CustomMetaData customMetaData = new CustomMetaData(tableName, columnsClasses, columnTypeNames, columns);
+            CustomData customData = new CustomData(data, customMetaData);
+
+            return customData;
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
