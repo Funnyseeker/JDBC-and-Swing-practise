@@ -1,15 +1,17 @@
 package application;
 
+import application.config.ConfigManager;
+import application.data.CustomData;
+import application.data.DataManager;
+import application.model.CustomTabbedPane;
 import com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException;
 
 import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.ResultSet;
 import java.util.List;
 
 public class MainFrame extends JFrame {
@@ -82,16 +84,20 @@ public class MainFrame extends JFrame {
         add(refreshButton, BorderLayout.NORTH);
 
         //CustomTabbedPane settings
-        ConnectionInfo connectionInfo = new ConnectionInfo("oracle:thin", "localhost", "1521", "orcl", "vsams", "vsams");
         ConfigManager xm = ConfigManager.getInstance();
+        ConnectionInfo connectionInfo;
+        //xm.WriteXmlConfigFile(connectionInfo);
+        connectionInfo = xm.ReadXmlConfigFile();
+        if (connectionInfo == null) {
+            JOptionPane.showMessageDialog(this, "не удалость прочесть конфиг файл");
+        }
+        DataManager dm = null;
         try {
-            xm.WriteXmlConfigFile(connectionInfo);
-        } catch (ParserConfigurationException e) {
+            dm = DataManager.getInstance(connectionInfo);
+        } catch (ReferenceNotInitializedException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
         }
-        DataManager dm = DataManager.initInstance(connectionInfo);
-        //todo: ResultSet - внутренности слоя DAO - класса, который общается с БД (в твоем случае DataManager)
-        //todo: Никто и никогда (кроме DataManager) не должен знать КАК DAO-класс общается с БД
         List<CustomData> rezSet = dm.getDataSet();
         customTabbedPane = new CustomTabbedPane(rezSet);
 
