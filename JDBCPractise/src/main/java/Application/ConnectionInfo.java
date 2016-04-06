@@ -2,7 +2,6 @@ package application;
 
 
 public class ConnectionInfo {
-    //todo: лучше избегать такой линейной инициализации
     private String driver;
     private String host;
     private String port;
