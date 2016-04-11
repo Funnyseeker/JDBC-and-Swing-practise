@@ -101,8 +101,8 @@ public class ConfigManager {
                     continue;
                 }
             }
-            connectionInfo = new ConnectionInfo(driver, host, port, sid, user, password);
 
+            connectionInfo = new ConnectionInfo(driver, host, port, sid, user, password);
             return  connectionInfo;
         } catch (ParserConfigurationException pce) {
             JOptionPane.showMessageDialog(new JFrame(), pce.getMessage());

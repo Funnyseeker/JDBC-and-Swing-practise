@@ -1,5 +1,6 @@
 package application;
 
+import application.config.ConfigEditor;
 import application.config.ConfigManager;
 import application.data.CustomData;
 import application.data.DataManager;
@@ -18,13 +19,18 @@ public class MainFrame extends JFrame {
     private JMenuBar menuBar;
     private CustomTabbedPane customTabbedPane;
     private JButton refreshButton;
+    private ConnectionInfo connectionInfo;
+
+    public MainFrame() {
+        super("Database viewer");
+    }
 
     public void run() {
-        InitializeComponents();
+        initializeComponents();
         this.setVisible(true);
     }
 
-    private void InitializeComponents() {
+    private void initializeComponents() {
         //Frame settings
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -44,10 +50,38 @@ public class MainFrame extends JFrame {
             }
         });
 
+        //Button settings
+        refreshButton = new JButton("Refresh");
+        add(refreshButton, BorderLayout.NORTH);
+        ConfigManager xm = ConfigManager.getInstance();
+        //xm.WriteXmlConfigFile(connectionInfo);
+        connectionInfo = xm.ReadXmlConfigFile();
+        if (connectionInfo == null) {
+            JOptionPane.showMessageDialog(this, "не удалость прочесть конфиг файл");
+            runConfigEditor();
+        }
+
+        refreshButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    DataManager.getInstance().closeConnection();
+                    customTabbedPane.dispose();
+                    initTabbedPane(connectionInfo);
+                } catch (ReferenceNotInitializedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
         //Menu settings
         menuBar = new JMenuBar();
         JMenu menuConn = new JMenu("File");
-        final JMenuItem editConn = new JMenuItem("Edit connection");
+        JMenuItem editConn = new JMenuItem("Edit connection");
+        editConn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                runConfigEditor();
+            }
+        });
         menuConn.add(editConn);
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(new ActionListener() {
@@ -65,32 +99,11 @@ public class MainFrame extends JFrame {
         menuBar.add(menuConn);
         setJMenuBar(menuBar);
 
-        //Button settings
-        refreshButton = new JButton("Refresh");
-        refreshButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    //todo: Connection - это бэкэнд, его можно не "рефрешить"
-                    DataManager.getInstance().closeConnection();
-                    //todo: Получилось так: скрываешь из виду, инициализируешь по второму и более разу один и тот же объект, сновка показываешь (возможно наслоение)
-                    customTabbedPane.setVisible(false);
-                    InitializeComponents();
-                    customTabbedPane.setVisible(true);
-                } catch (ReferenceNotInitializedException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        add(refreshButton, BorderLayout.NORTH);
-
         //CustomTabbedPane settings
-        ConfigManager xm = ConfigManager.getInstance();
-        ConnectionInfo connectionInfo;
-        //xm.WriteXmlConfigFile(connectionInfo);
-        connectionInfo = xm.ReadXmlConfigFile();
-        if (connectionInfo == null) {
-            JOptionPane.showMessageDialog(this, "не удалость прочесть конфиг файл");
-        }
+        initTabbedPane(connectionInfo);
+    }
+
+    private void initTabbedPane(ConnectionInfo connectionInfo) {
         DataManager dm = null;
         try {
             dm = DataManager.getInstance(connectionInfo);
@@ -102,5 +115,15 @@ public class MainFrame extends JFrame {
         customTabbedPane = new CustomTabbedPane(rezSet);
 
         add(customTabbedPane, BorderLayout.CENTER);
+    }
+
+    private void runConfigEditor()
+    {
+        ConfigEditor configEditor = new ConfigEditor();
+        configEditor.Start(connectionInfo, this);
+    }
+
+    public JButton getRefreshButton() {
+        return refreshButton;
     }
 }

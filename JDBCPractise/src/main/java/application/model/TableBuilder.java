@@ -30,7 +30,6 @@ public class TableBuilder extends JDialog {
         table.addMouseListener(new MouseInputAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int row = table.rowAtPoint(e.getPoint());
                 int col = table.columnAtPoint(e.getPoint());
                 if (col == table.getColumnCount()) {
                     ((CustomTableModel)table.getModel()).addColumn();

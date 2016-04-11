@@ -2,6 +2,7 @@ package application.model;
 
 import application.data.CustomData;
 import application.data.DataManager;
+import com.sun.media.jfxmediaimpl.MediaDisposer;
 import com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException;
 
 import javax.swing.*;
@@ -11,12 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class CustomTabbedPane extends JTabbedPane {
-    //todo: ResultSet не только выходит из слоя DAO, но и залазит в слой модели :)
+public class CustomTabbedPane extends JTabbedPane implements MediaDisposer.Disposable {
     public CustomTabbedPane(final List<CustomData> tabbesList) {
         try {
-            //From ResultSets to tabbes
-            //Note! Firs result set consider just user table`s names
             for(int i=0; i<tabbesList.size(); i++) {
                 this.addTab(tabbesList.get(i).getCustomMetaData().getTableName(),
                         TableBuilder.createTable(tabbesList.get(i)));
@@ -35,14 +33,14 @@ public class CustomTabbedPane extends JTabbedPane {
                         //dialog.createTable();
                         //dialog.setVisible(true);
                         //JPanel panel = new JPanel(new FlowLayout());
-                        // prompt the user to enter their name
-                        String name = JOptionPane.showInputDialog(new JFrame(), "Enter new table name?");
-                        if (name == null)
+                        String tableName = JOptionPane.showInputDialog(new JFrame(), "Enter new table name?");
+                        if (tableName == null)
                             return;
 
                         try {
-                            sourceTabbedPane.insertTab(name, new ImageIcon(),
-                                    TableBuilder.createTable(DataManager.getInstance().CreateTable(name)), "", index);
+                            sourceTabbedPane.insertTab(tableName, new ImageIcon(),
+                                    TableBuilder.createTable(DataManager.getInstance().CreateTable(tableName)),
+                                    "", index);
                         } catch (ReferenceNotInitializedException e1) {
                             e1.printStackTrace();
                         }
@@ -70,5 +68,10 @@ public class CustomTabbedPane extends JTabbedPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void dispose() {
+
     }
 }
