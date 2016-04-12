@@ -109,10 +109,29 @@ public class TableBuilder extends JDialog {
         String[]  columnNames = {"Column Name", "Column Class"};
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
-        JPanel panel = new JPanel(new GridLayout());
-        panel.add(tabNameField);
-        panel.add(okButton);
-        getContentPane().setLayout(new GridLayout());
+        JPanel panel = new JPanel();
+        GroupLayout layout = new GroupLayout(panel);
+        panel.setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tabNameField))
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(okButton)))
+        );
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(tabNameField))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(okButton))
+        );
+
+                 getContentPane().setLayout(new GridLayout());
         getContentPane().add(scrollPane);
         getContentPane().add(panel);
         pack();

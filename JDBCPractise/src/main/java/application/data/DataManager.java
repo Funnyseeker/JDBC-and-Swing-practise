@@ -32,12 +32,6 @@ public class DataManager {
         this.URL = connectionInfo.getUrl();
     }
 
-    //todo: следующие два метода можно заменить одним:
-    //todo:  if (instance == null){
-    //todo:      instance = new DataManager(connectionInfo);
-    //todo:  }
-    //todo:  return instance;
-
     public static DataManager getInstance() throws ReferenceNotInitializedException {
         if (Instance == null) throw new ReferenceNotInitializedException();
         return Instance;
@@ -54,20 +48,18 @@ public class DataManager {
      * If "null" - connection was created with error.
      */
     private Connection getConnection() {
-//        Конец условия звучит как "вернуть соеденение или вернуть соеденение". Для читабельности можно сделать примерно так:
-//        if (connection != null && !connection.isClosed()){
-//            return connection;
-//        }
-//        ... Инициализация и возврат соеденения
-
         try {
-            if (connection == null || connection.isClosed()) {
-                //todo: Драйвер достаточно загрузить лишь раз при запуске приложения
+            if (connection != null || !connection.isClosed()) {
+                return connection;
+            }
+            else
+            {
                 connection = DriverManager.getConnection(URL, Username, Password);
                 return connection;
-            } else return connection;
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
             return null;
         }
     }

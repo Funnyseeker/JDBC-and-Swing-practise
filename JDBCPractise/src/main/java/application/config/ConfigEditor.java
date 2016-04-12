@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ConfigEditor extends JFrame {
+public class ConfigEditor extends JDialog {
     private JTextField loginField;
     private JTextField passwordField;
     private JTextField driverField;
@@ -25,11 +25,11 @@ public class ConfigEditor extends JFrame {
     private JLabel portFieldL;
     private JLabel sidFieldL;
     private JButton okButton;
-    private JFrame pMainFrame;
     private ConnectionInfo rezultConnectionInfo;
 
     public ConfigEditor() {
-        super("Edit config");
+        setModal(true);
+        setName("Edit config");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -48,7 +48,7 @@ public class ConfigEditor extends JFrame {
         hostField = new JTextField();
         portField = new JTextField();
         sidField = new JTextField();
-        loginFieldL = new JLabel("Loin");
+        loginFieldL = new JLabel("Login");
         passwordFieldL = new JLabel("Password");
         driverFieldL = new JLabel("Driver");
         hostFieldL = new JLabel("Host");
@@ -64,9 +64,6 @@ public class ConfigEditor extends JFrame {
                             portField.getText(), sidField.getText(), loginField.getText(), passwordField.getText());
                     try {
                         DataManager.getInstance(rezultConnectionInfo);
-                        JButton button = ((MainFrame) pMainFrame).getRefreshButton();
-                        //Ивент не срабатывает. Пока хз что не так(
-                        button.dispatchEvent(new ActionEvent(button, ActionEvent.ACTION_PERFORMED, null));
                         dispose();
                     } catch (ReferenceNotInitializedException e1) {
                         e1.printStackTrace();
@@ -129,10 +126,7 @@ public class ConfigEditor extends JFrame {
         add(panel);
     }
 
-    public void Start(ConnectionInfo connectionInfo, JFrame pMainFrame) {
-        rezultConnectionInfo = connectionInfo;
-        this.pMainFrame = pMainFrame;
-
+    public void Start(ConnectionInfo connectionInfo) {
         if (connectionInfo != null) {
             loginField.setText(connectionInfo.getUsername());
             passwordField.setText(connectionInfo.getPassword());
@@ -143,6 +137,7 @@ public class ConfigEditor extends JFrame {
         } else {
             connectionInfo = new ConnectionInfo();
         }
+        rezultConnectionInfo = connectionInfo;
         setBounds(100, 100, 200, 400);
         setVisible(true);
     }

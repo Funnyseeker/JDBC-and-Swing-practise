@@ -70,8 +70,7 @@ public class CustomTabbedPane extends JTabbedPane implements MediaDisposer.Dispo
         }
     }
 
-
     public void dispose() {
-
+            removeAll();
     }
 }

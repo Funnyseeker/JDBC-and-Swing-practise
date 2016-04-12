@@ -101,6 +101,7 @@ public class MainFrame extends JFrame {
 
         //CustomTabbedPane settings
         initTabbedPane(connectionInfo);
+        add(customTabbedPane, BorderLayout.CENTER);
     }
 
     private void initTabbedPane(ConnectionInfo connectionInfo) {
@@ -111,19 +112,14 @@ public class MainFrame extends JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
         }
-        List<CustomData> rezSet = dm.getDataSet();
-        customTabbedPane = new CustomTabbedPane(rezSet);
-
-        add(customTabbedPane, BorderLayout.CENTER);
+        customTabbedPane = new CustomTabbedPane(dm.getDataSet());
     }
 
     private void runConfigEditor()
     {
         ConfigEditor configEditor = new ConfigEditor();
-        configEditor.Start(connectionInfo, this);
-    }
-
-    public JButton getRefreshButton() {
-        return refreshButton;
+        configEditor.Start(connectionInfo);
+        customTabbedPane.dispose();
+        initTabbedPane(connectionInfo);
     }
 }
